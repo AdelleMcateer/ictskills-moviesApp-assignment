@@ -19,10 +19,16 @@ const MovieListPage = (props) => {
 
     const genreId = Number(genreFilter);
 
-    let displayedMovies = movies
-        .filter((m) => {
-            return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
-        })
+    const addToFavorites = (movieId) => {
+        const updatedMovies = movies.map((m) =>
+            m.id === movieId ? { ...m, favorite: true } : m
+        );
+        setMovies(updatedMovies);
+    };
+
+    let displayedMovies = movies.filter((m) => {
+        return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
+    })
         .filter((m) => {
             return genreId > 0 ? m.genre_ids.includes(genreId) : true;
         });
@@ -30,6 +36,7 @@ const MovieListPage = (props) => {
     const handleChange = (type, value) => {
         if (type === "name") setNameFilter(value);
         else setGenreFilter(value);
+
     };
 
     useEffect(() => {
@@ -61,7 +68,7 @@ const MovieListPage = (props) => {
                         genreFilter={genreFilter}
                     />
                 </Grid>
-                <MovieList movies={displayedMovies} />
+                <MovieList movies={displayedMovies} selectFavorite={addToFavorites} />
             </Grid>
         </Grid>
     );
