@@ -1,5 +1,3 @@
-import Avatar from "@material-ui/core/Avatar";
-import { Link } from "react-router-dom";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -15,6 +13,7 @@ import StarRateIcon from "@material-ui/icons/StarRate";
 import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import img from '../../images/film-poster-placeholder.png'
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
     card: { maxWidth: 345 },
@@ -27,29 +26,9 @@ const useStyles = makeStyles({
 export default function MovieCard(props) {
     const classes = useStyles();
     const movie = props.movie;
-
-    const handleAddToFavorite = (e) => {
-        e.preventDefault();
-        props.selectFavorite(movie.id);
-    };
-
     return (
         <Card className={classes.card}>
-            <CardHeader
-                className={classes.header}
-                avatar={
-                    movie.favorite ? (
-                        <Avatar className={classes.avatar}>
-                            <FavoriteIcon />
-                        </Avatar>
-                    ) : null
-                }
-                title={
-                    <Typography variant="h5" component="p">
-                        {movie.title}{" "}
-                    </Typography>
-                }
-            />
+            <CardHeader className={classes.header} title={movie.title} />
             <CardMedia
                 className={classes.media}
                 image={
@@ -75,7 +54,7 @@ export default function MovieCard(props) {
                 </Grid>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites" onClick={handleAddToFavorite}>
+                <IconButton aria-label="add to favorites" onClick={null}>
                     <FavoriteIcon color="primary" fontSize="large" />
                 </IconButton>
                 <Link to={`/movies/${movie.id}`}>
