@@ -7,6 +7,8 @@ import AddToMustWatchIcon from '../components/cardIcons/addToMustWatch'
 import PageTemplate from '../components/templateMovieListPage'
 import { getUpcomingMovies } from "../api/tmdb-api";
 
+/* Exercise 3 was already completed in Exercise 1.*/
+
 const UpcomingMoviesPage = (props) => {
     //const [movies, setMovies] = useState([]);
     //const favorites = movies.filter(m => m.favorite)
