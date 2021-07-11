@@ -1,40 +1,65 @@
 import React from "react";
-import "./movieCard.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../../globals/fontawesome";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardHeader from "@material-ui/core/CardHeader";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
+import StarRateIcon from "@material-ui/icons/StarRate";
+import IconButton from "@material-ui/core/IconButton";
+import Grid from "@material-ui/core/Grid";
+import img from '../../images/film-poster-placeholder.png'
 
-const MovieCard = props => {
+const useStyles = makeStyles({
+    card: { maxWidth: 345 },
+    media: { height: 500 },
+    avatar: {
+        backgroundColor: "rgb(255, 0, 0)",
+    },
+});
+
+export default function MovieCard(props) {
+    const classes = useStyles();
+    const movie = props.movie;
     return (
-        <div className="col-sm-3">
-            <div className="card  bg-white">
-                <img
-                    className="card-img-tag center "
-                    alt={props.movie.title}
-                    src={
-                        props.movie.poster_path
-                            ? `https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`
-                            : "./film-poster-placeholder.png"
-                    }
-                />
-                <div className="card-body">
-                    <h4 className="card-title ">{props.movie.title}</h4>
-                    <p>
-                        <FontAwesomeIcon icon={["fas", "calendar"]} />
-                        <span> {props.movie.release_date}</span>
-                    </p>
-                    <p>
-                        <FontAwesomeIcon icon={["fas", "star"]} />
-                        <span> {props.movie.vote_average}</span>
-                    </p>
-                </div>
-                <div className="card-footer">
-                    <button type="button" className="btn w-100 btn-primary">
-                        Add to Favorites
-                    </button>
-                </div>
-            </div>
-        </div>
+        <Card className={classes.card}>
+            <CardHeader className={classes.header} title={movie.title} />
+            <CardMedia
+                className={classes.media}
+                image={
+                    movie.poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                        : img
+                }
+            />
+            <CardContent>
+                <Grid container>
+                    <Grid item xs={6}>
+                        <Typography variant="h6" component="p">
+                            <CalendarIcon fontSize="small" />
+                            {movie.release_date}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h6" component="p">
+                            <StarRateIcon fontSize="small" />
+                            {"  "} {movie.vote_average}{" "}
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </CardContent>
+            <CardActions disableSpacing>
+                <IconButton aria-label="add to favorites" onClick={null}>
+                    <FavoriteIcon color="primary" fontSize="large" />
+                </IconButton>
+                <Button variant="outlined" size="medium" color="primary">
+                    More Info ...
+                </Button>
+            </CardActions>
+        </Card>
     );
-};
-
-export default MovieCard;
+}
