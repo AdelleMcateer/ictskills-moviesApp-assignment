@@ -9,6 +9,7 @@ const MoviesContextProvider = (props) => {
 
     const addToFavorites = (movie) => {
         setFavorites([...favorites, movie.id])
+        console.log(favorites);
     };
     // We will use this function in a later section
     const removeFromFavorites = (movie) => {
