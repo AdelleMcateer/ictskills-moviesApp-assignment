@@ -69,7 +69,8 @@ export const getUpcomingMovies = async () => {
 
 export const getTrendingMovies = async () => {
     const response = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?sort_by=popularity&api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+        //`https://api.themoviedb.org/3/discover/movie?sort_by=popularity&api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=2`
     )
     if (!response.ok) {
         throw new Error(response.json().message);
@@ -77,7 +78,7 @@ export const getTrendingMovies = async () => {
     return response.json();
 };
 
-export const getMovieCast = (id) => {
+export const getCast = (id) => {
     return fetch(
         `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
     )
@@ -95,6 +96,17 @@ export const getPerson = async (id) => {
     const res = await fetchResponse.json();
     return res;
 };
+
+export const getCastMovies = async (id) => {
+    const fetchResponse = await fetch(
+        `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    );
+    const res = await fetchResponse.json();
+    const json = res.cast;
+    console.log("get cast movies: ", json);
+    return json;
+};
+
 
 
 

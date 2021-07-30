@@ -13,6 +13,7 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TrendingMoviesPage from "./pages/trendingMoviesPage";
 import CastDetailsPage from "./pages/castDetailsPage";
+import CastContextProvider from "./contexts/castContext";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -30,22 +31,24 @@ const App = () => {
             <BrowserRouter>
                 <SiteHeader />
                 <MoviesContextProvider>
-                    {" "}
-                    <Switch>
-                        <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
-                        <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-                        <Route path="/reviews/:id" component={MovieReviewPage} />
-                        <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                        <Route exact path="/movies/trending" component={TrendingMoviesPage} />
-                        <Route path="/movies/:id" component={MoviePage} />
-                        <Route path="/person/:id" component={CastDetailsPage} />
-                        <Route exact path="/" component={HomePage} />
-                        <Redirect from="*" to="/" />
-                    </Switch>
+                    <CastContextProvider>
+                        {" "}
+                        <Switch>
+                            <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+                            <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+                            <Route path="/reviews/:id" component={MovieReviewPage} />
+                            <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                            <Route exact path="/movies/trending" component={TrendingMoviesPage} />
+                            <Route path="/movies/:id" component={MoviePage} />
+                            <Route path="/person/:id" component={CastDetailsPage} />
+                            <Route exact path="/" component={HomePage} />
+                            <Redirect from="*" to="/" />
+                        </Switch>
+                    </CastContextProvider>
                 </MoviesContextProvider>
             </BrowserRouter>
             <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
+        </QueryClientProvider >
     );
 };
 
