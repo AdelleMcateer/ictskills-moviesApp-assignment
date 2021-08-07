@@ -7,7 +7,6 @@ import GridListTile from "@material-ui/core/GridListTile";
 import { getMovieImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner';
-import CastHeader from "../headerCast";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const TemplateCastPage = ({ person, children }) => {
+const TemplateCastPage = ({ movie, children }) => {
     const classes = useStyles();
     const { data, error, isLoading, isError } = useQuery(
-        ["images", { id: person.id }],
+        ["images", { id: movie.id }],
         getMovieImages
     );
 
@@ -37,10 +36,9 @@ const TemplateCastPage = ({ person, children }) => {
     }
     const images = data.posters
 
-
     return (
         <>
-            <CastHeader person={person} />
+            <MovieHeader movie={movie} />
 
             <Grid container spacing={5} style={{ padding: "15px" }}>
                 <Grid item xs={3}>
@@ -49,9 +47,8 @@ const TemplateCastPage = ({ person, children }) => {
                             {images.map((image) => (
                                 <GridListTile key={image.file_path} className={classes.gridListTile} cols={1}>
                                     <img
-                                        src={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
-
-                                        alt={person.name}
+                                        src={`https://image.tmdb.org/t/p/w500/${image.profile_path}`}
+                                        alt={image.poster_path}
                                     />
                                 </GridListTile>
                             ))}
@@ -59,9 +56,7 @@ const TemplateCastPage = ({ person, children }) => {
                     </div>
                 </Grid>
 
-                {/* <Grid container> */}
                 {children}
-                {/* </Grid> */}
             </Grid>
         </>
     );

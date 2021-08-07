@@ -1,66 +1,51 @@
-import React from "react";
+//import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Link, withRouter } from "react-router-dom";
 //import MovieDetails from "../components/movieDetails";
-//import PageTemplate from "../components/templateMoviePage";
-//import { getMovie } from '../api/tmdb-api'
-//import { useQuery } from "react-query";
-//import Spinner from '../components/spinner'
-
-import CastDetails from "../components/castDetails";
-import CastMovies from "../components/castMovies";
+import PageTemplate from "../components/templateMoviePage";
+import { getMovie } from '../api/tmdb-api'
+import { useQuery } from "react-query";
+import Spinner from '../components/spinner'
+import { getCastMovies } from '../api/tmdb-api'
+import CastList from "../components/castList";
 import PageCastTemplate from "../components/templateCastPage";
-import usePerson from "../hooks/usePerson";
 
 
 const CastDetailsPage = (props) => {
     const { id } = props.match.params;
-    const [person] = usePerson(id);
-    /*const { data: movie, error, isLoading, isError } = useQuery(
-        ["movie", { id: id }],
+
+    const [cast, setCast] = useState([]);
+    useEffect(() => {
+        getCastMovies(id).then((cast) => {
+            setCast(cast);
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    console.log(cast);
+
+    const { data: movie, error, isLoading, isError } = useQuery(
+        ["discover", { id: id }],
         getMovie
-    )
+    );
 
     if (isLoading) {
         return <Spinner />;
-    }
+    };
 
     if (isError) {
         return <h1>{error.message}</h1>;
-    }*/
+    };
 
     return (
         <>
-            {person ? (
+            {movie ? (
                 <>
-                    <PageCastTemplate person={person}>
-                        <CastDetails person={person} />
-                    </PageCastTemplate>
-
-                    {!props.history.location.pathname.endsWith(
-                        "/movies-appeared-in"
-                    ) ? (
-                        <Link
-                            className="btn btn-warning btn-block active"
-                            to={`/person/${id}/movies-appeared-in`}
-                        >
-                            Show Movies {person.name} Has Appeared In
-                        </Link>
-                    ) : (
-                        <Link
-                            className="btn btn-warning btn-block active"
-                            to={`/person/${id}`}
-                        >
-                            Hide Movies
-                        </Link>)}
-
-
-                    <Route
-                        path={`/person/:id/movies-appeared-in`}
-                        render={(props) => <CastMovies person={person} {...props} />}
-                    />
+                    <PageTemplate movie={movie}>
+                        <CastList cast={cast} />
+                    </PageTemplate>
                 </>
             ) : (
-                <p>Waiting for movie details</p>
+                <p>Waiting fo details</p>
             )}
         </>
     );

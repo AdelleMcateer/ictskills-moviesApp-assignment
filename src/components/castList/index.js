@@ -1,6 +1,6 @@
 import React from "react";
-import Cast from "../castCardList";
-import { getCast } from "../../api/tmdb-api";
+import Cast from "../castCard";
+//import { getCast } from "../../api/tmdb-api";
 import Grid from "@material-ui/core/Grid";
 
 const CastList = ({ cast }) => {
