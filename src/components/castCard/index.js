@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function CastCard({ cast }) {
+export default function CastCard({ movieCast }) {
     const classes = useStyles();
 
     return (
@@ -31,7 +31,7 @@ export default function CastCard({ cast }) {
                 title={
                     <Typography variant="h5" component="p">
                         <PersonIcon fontSize="medium" />
-                        {cast.character}{" "}
+                        {movieCast.character}{" "}
                     </Typography>
                 }
             />
@@ -39,8 +39,8 @@ export default function CastCard({ cast }) {
             <CardMedia
                 className={classes.media}
                 image={
-                    cast.profile_path
-                        ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
+                    movieCast.profile_path
+                        ? `https://image.tmdb.org/t/p/w500/${movieCast.profile_path}`
                         : img
                 }
             />
@@ -49,28 +49,28 @@ export default function CastCard({ cast }) {
                 <Grid container>
                     <Grid item xs={6}>
                         <Typography variant="h6" component="p">
-                            {cast.name}
+                            {movieCast.name}
                         </Typography>
                     </Grid>
                     <Grid item xs={6}>
                         <Typography variant="h6" component="p">
                             <StarRateIcon fontSize="small" />
-                            {"  "} {cast.popularity}{" "}
+                            {"  "} {movieCast.popularity}{" "}
                         </Typography>
                     </Grid>
                 </Grid>
             </CardContent>
 
             <CardActions >
-                <Link to={`/movies/${cast.id}/profile`}>
+                <Link to={`/movies/${movieCast.id}/profile`}>
                     <Button variant="outlined" size="medium" color="primary">
                         Profile
                     </Button>
                 </Link>
 
-                <Link to={`/movies/${cast.id}`}>
+                <Link to={`/movies/${movieCast.id}`}>
                     <Button variant="outlined" size="medium" color="primary">
-                        Cast
+                        Starred In
                     </Button>
                 </Link>
             </CardActions>

@@ -1,5 +1,4 @@
 import React from "react";
-//import CastCardList from "../components/castCardList";
 import CastCard from "../components/castCard";
 import SampleMovieCast from "./sampleCastData";
 import { MemoryRouter } from "react-router";
@@ -19,8 +18,8 @@ export default {
 export const Basic = () => {
   return (
     <CastCard
-      movie={SampleMovieCast}
-      //action={(movie) => <AddToFavoritesIcon movie={movie} />}
+      movieCast={SampleMovieCast}
+      // action={(movie) => <AddToFavoritesIcon movie={movie} />}
       taging={(movieCast) => null}
     />
   );
@@ -32,9 +31,10 @@ export const Exceptional = () => {
   return (
     <CastCard
       movieCast={sampleNoPoster}
-      //action={(movie) => <AddToFavoritesIcon movie={movie} />}
+      // action={(movie) => <AddToFavoritesIcon movie={movie} />}
       taging={(movie) => null}
     />
   );
 };
+
 Exceptional.storyName = "exception";

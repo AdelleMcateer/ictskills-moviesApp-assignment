@@ -10,6 +10,7 @@ export default
     popularity: 47.49,
     profile_path: "/cgoy7t5Ve075naBPcewZrc08qGw.jpg",
     cast_id: 0,
+    character: "Dr. Smolder Bravestone",
     order: 0
   }
   ;

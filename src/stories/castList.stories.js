@@ -24,11 +24,11 @@ export const Basic = () => {
     { ...SampleMovieCast, id: 4 },
     { ...SampleMovieCast, id: 5 },
   ];
+
   return (
     <Grid container spacing={5}>
       <CastList
         cast={cast}
-      //action={(movie) => <AddToFavoritesIcon movie={movie} />}
       />
     </Grid>
   );
