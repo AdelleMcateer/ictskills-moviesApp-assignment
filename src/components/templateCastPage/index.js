@@ -1,12 +1,14 @@
 import React from "react";
 import MovieHeader from "../headerMovie";
+import Header from "../headerMovieList";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import { getMovieImages } from "../../api/tmdb-api";
+import { getPersonImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const TemplateCastPage = ({ movie, children }) => {
+const TemplateCastPage = ({ actor, children }) => {
     const classes = useStyles();
     const { data, error, isLoading, isError } = useQuery(
-        ["images", { id: movie.id }],
-        getMovieImages
+        ["personImages", { id: actor.id }],
+        getPersonImages
     );
 
     if (isLoading) {
@@ -34,20 +36,19 @@ const TemplateCastPage = ({ movie, children }) => {
     if (isError) {
         return <h1>{error.message}</h1>;
     }
-    const images = data.posters
+    const images = data.profiles
 
     return (
         <>
-            <MovieHeader movie={movie} />
-
             <Grid container spacing={5} style={{ padding: "15px" }}>
                 <Grid item xs={3}>
+                    <Header title={actor.name} />
                     <div className={classes.root}>
                         <GridList cellHeight={500} className={classes.gridList} cols={1}>
                             {images.map((image) => (
                                 <GridListTile key={image.file_path} className={classes.gridListTile} cols={1}>
                                     <img
-                                        src={`https://image.tmdb.org/t/p/w500/${image.profile_path}`}
+                                        src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
                                         alt={image.poster_path}
                                     />
                                 </GridListTile>
@@ -55,7 +56,6 @@ const TemplateCastPage = ({ movie, children }) => {
                         </GridList>
                     </div>
                 </Grid>
-
                 {children}
             </Grid>
         </>

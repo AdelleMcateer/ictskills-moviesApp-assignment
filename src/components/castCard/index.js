@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -68,9 +68,9 @@ export default function CastCard({ movieCast }) {
                     </Button>
                 </Link>
 
-                <Link to={`/movies/${movieCast.id}`}>
+                <Link to={`/movies/${movieCast.id}/filmography`}>
                     <Button variant="outlined" size="medium" color="primary">
-                        Starred In
+                        Filmography
                     </Button>
                 </Link>
             </CardActions>

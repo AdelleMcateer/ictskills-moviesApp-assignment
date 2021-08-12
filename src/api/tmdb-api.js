@@ -56,7 +56,6 @@ export const getMovieReviews = (id) => {
         });
 };
 
-
 export const getUpcomingMovies = async () => {
     const response = await fetch(
         `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
@@ -78,7 +77,7 @@ export const getTrendingMovies = async () => {
     return response.json();
 };
 
-export const getCast = (id) => {
+export const getMovieCast = (id) => {
     return fetch(
         `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
     )
@@ -89,15 +88,18 @@ export const getCast = (id) => {
         });
 };
 
-export const getPerson = async (id) => {
-    const fetchResponse = await fetch(
-        `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+export const getProfile = async (args) => {
+    const [prefix, { id }] = args.queryKey;
+    const response = await fetch(
+        `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
     );
-    const res = await fetchResponse.json();
-    return res;
+    if (!response.ok) {
+        throw new Error(response.json().message);
+    }
+    return response.json();
 };
 
-export const getCastMovies = async (id) => {
+/*export const getCastMovies = async (id) => {
     const fetchResponse = await fetch(
         `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
     );
@@ -105,8 +107,43 @@ export const getCastMovies = async (id) => {
     const json = res.cast;
     console.log("get cast movies: ", json);
     return json;
+};*/
+
+export const getFilmography = async ({ queryKey }) => {
+    // eslint-disable-next-line no-unused-vars
+    const [prefix, { id }] = queryKey;
+    console.log("Retrieving filmography");
+    return fetch(
+        `https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    )
+        .then((res) => res.json())
+        .then((json) => {
+            console.log("JSON : " + id + " " + json.cast);
+            return json.cast;
+        });
 };
 
+export const getPerson = async (args) => {
+    const [prefix, { id }] = args.queryKey;
+    const response = await fetch(
+        `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    );
+    if (!response.ok) {
+        throw new Error(response.json().message);
+    }
+    return response.json();
+};
+
+export const getPersonImages = async (queryKey) => {
+    const [prefix, { id }] = queryKey;
+    const response = await fetch(
+        `https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    )
+    if (!response.ok) {
+        throw new Error(response.json().message);
+    }
+    return response.json();
+};
 
 
 
