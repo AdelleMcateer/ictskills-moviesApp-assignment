@@ -5,14 +5,15 @@ import { MemoryRouter } from "react-router";
 import { action } from "@storybook/addon-actions";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 import Grid from "@material-ui/core/Grid";
-import MoviesContextProvider from "../contexts/moviesContext";
+import CastContextProvider from "../contexts/castContext";
+//import MoviesContextProvider from "../contexts/moviesContext";
 
 export default {
-  title: "Cast Details Page/CastList",
+  title: "Home Page/Cast List",
   component: CastList,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
+    (Story) => <CastContextProvider>{Story()}</CastContextProvider>,
   ],
 };
 
@@ -29,6 +30,7 @@ export const Basic = () => {
     <Grid container spacing={5}>
       <CastList
         cast={cast}
+        action={(cast) => <AddToFavoritesIcon cast={cast} />}
       />
     </Grid>
   );

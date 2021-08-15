@@ -97,7 +97,7 @@ export const getMovieCredits = (id) => {
         });
 };
 
-export const getProfile = async (args) => {
+/*export const getProfile = async (args) => {
     const [prefix, { id }] = args.queryKey;
     const response = await fetch(
         `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
@@ -106,17 +106,40 @@ export const getProfile = async (args) => {
         throw new Error(response.json().message);
     }
     return response.json();
+};*/
+
+export const getActor = async (args) => {
+    const [prefix, { id }] = args.queryKey;
+    const response = await fetch(
+        `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    );
+    if (!response.ok) {
+        throw new Error(response.json().message);
+    }
+    return response.json();
 };
 
-/*export const getCastMovies = async (id) => {
-    const fetchResponse = await fetch(
-        `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+export const getActors = async () => {
+    const response = await fetch(
+        `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_video=false&page=1`
     );
-    const res = await fetchResponse.json();
-    const json = res.cast;
-    console.log("get cast movies: ", json);
-    return json;
-};*/
+    if (!response.ok) {
+        throw new Error(response.json().message);
+    }
+    return response.json();
+};
+
+export const getActorImages = async ({ queryKey }) => {
+    // eslint-disable-next-line no-unused-vars
+    const [prefix, { id }] = queryKey;
+    const response = await fetch(
+        `https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    )
+    if (!response.ok) {
+        throw new Error(response.json().message);
+    }
+    return response.json();
+};
 
 export const getFilmography = async ({ queryKey }) => {
     const [prefix, { id }] = queryKey;
@@ -129,29 +152,6 @@ export const getFilmography = async ({ queryKey }) => {
             console.log("JSON : " + id + " " + json.cast);
             return json.cast;
         });
-};
-
-/*export const getPerson = async (args) => {
-    const [prefix, { id }] = args.queryKey;
-    const response = await fetch(
-        `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    );
-    if (!response.ok) {
-        throw new Error(response.json().message);
-    }
-    return response.json();
-};*/
-
-export const getActorImages = async ({ queryKey }) => {
-    // eslint-disable-next-line no-unused-vars
-    const [prefix, { id }] = queryKey;
-    const response = await fetch(
-        `https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    )
-    if (!response.ok) {
-        throw new Error(response.json().message);
-    }
-    return response.json();
 };
 
 

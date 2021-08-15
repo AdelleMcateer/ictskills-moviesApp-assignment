@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import MovieReviewPage from "./pages/movieReviewPage";
 import HomePage from "./pages/homePage";
+import CastPage from "./pages/movieCastPage";
+import CastDetailsPage from "./pages/castDetailsPage";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import SiteHeader from './components/siteHeader'
@@ -12,12 +14,10 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TrendingMoviesPage from "./pages/trendingMoviesPage";
-import CastDetailsPage from "./pages/profilePage";
-import CastContextProvider from "./contexts/castContext";
 import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
-import FilmographyPage from "./pages/filmographyPage";
-import CastPage from "./pages/movieCastPage";
-import ProfilePage from "./pages/profilePage";
+
+//import CastContextProvider from "./contexts/castContext";
+//import FilmographyPage from "./pages/filmographyPage";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -37,6 +37,7 @@ const App = () => {
                 <MoviesContextProvider>
                     {" "}
                     <Switch>
+                        <Route exact path="/cast" component={CastPage} />
                         <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                         <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                         <Route path="/reviews/:id" component={MovieReviewPage} />
@@ -44,13 +45,10 @@ const App = () => {
                         <Route exact path="/movies/trending" component={TrendingMoviesPage} />
                         <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
                         <Route path="/movies/:id" component={MoviePage} />
-                        <Route exact path="/movies/:id/cast" component={CastPage} />
-                        <Route exact path="/movies/:id/profile" component={ProfilePage} />
-                        <Route exact path="/movies/:id/filmography" component={FilmographyPage} />
+                        <Route exact path="/cast/:id" component={CastDetailsPage} />
                         <Route exact path="/" component={HomePage} />
                         <Redirect from="*" to="/" />
                     </Switch>
-
                 </MoviesContextProvider>
             </BrowserRouter>
             <ReactQueryDevtools initialIsOpen={false} />

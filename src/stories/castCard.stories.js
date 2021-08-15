@@ -2,7 +2,8 @@ import React from "react";
 import CastCard from "../components/castCard";
 import SampleMovieCast from "./sampleCastData";
 import { MemoryRouter } from "react-router";
-import MoviesContextProvider from "../contexts/moviesContext";
+//import MoviesContextProvider from "../contexts/moviesContext";
+import CastContextProvider from "../contexts/castContext";
 import { action } from "@storybook/addon-actions";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 
@@ -11,16 +12,16 @@ export default {
   component: CastCard,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
+    (Story) => <CastContextProvider>{Story()}</CastContextProvider>,
   ],
 };
 
 export const Basic = () => {
   return (
     <CastCard
-      movieCast={SampleMovieCast}
-      // action={(movie) => <AddToFavoritesIcon movie={movie} />}
-      taging={(movieCast) => null}
+      cast={SampleMovieCast}
+      action={(cast) => <AddToFavoritesIcon cast={cast} />}
+      taging={(cast) => null}
     />
   );
 };
@@ -31,8 +32,8 @@ export const Exceptional = () => {
   return (
     <CastCard
       movieCast={sampleNoPoster}
-      // action={(movie) => <AddToFavoritesIcon movie={movie} />}
-      taging={(movie) => null}
+      action={(cast) => <AddToFavoritesIcon cast={cast} />}
+      taging={(cast) => null}
     />
   );
 };

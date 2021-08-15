@@ -1,14 +1,12 @@
 import React from "react";
-import MovieHeader from "../headerMovie";
-import Header from "../headerMovieList";
+import CastHeader from "../headerCast";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import { getActorImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from '../spinner';
-
+import Spinner from '../spinner'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const TemplateCastPage = ({ actor, children }) => {
+const TemplateCastPage = ({ cast, children }) => {
     const classes = useStyles();
     const { data, error, isLoading, isError } = useQuery(
-        ["actorImages", { id: actor.id }],
+        ["images", { id: cast.id }],
         getActorImages
     );
 
@@ -40,13 +38,15 @@ const TemplateCastPage = ({ actor, children }) => {
 
     return (
         <>
+            <CastHeader cast={cast} />
+
             <Grid container spacing={5} style={{ padding: "15px" }}>
                 <Grid item xs={3}>
-                    <Header title={actor.name} />
                     <div className={classes.root}>
                         <GridList cellHeight={500} className={classes.gridList} cols={1}>
                             {images.map((image) => (
                                 <GridListTile key={image.file_path} className={classes.gridListTile} cols={1}>
+
                                     <img
                                         src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
                                         alt={image.poster_path}
@@ -56,7 +56,10 @@ const TemplateCastPage = ({ actor, children }) => {
                         </GridList>
                     </div>
                 </Grid>
-                {children}
+
+                <Grid item xs={9}>
+                    {children}
+                </Grid>
             </Grid>
         </>
     );

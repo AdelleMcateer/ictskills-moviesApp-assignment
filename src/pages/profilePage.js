@@ -7,7 +7,7 @@ import { getMovie } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 import { getMovieCast } from '../api/tmdb-api'
-import { getProfile } from '../api/tmdb-api'
+import { getActor } from '../api/tmdb-api'
 import ProfileDetails from "../components/profileDetails";
 
 import CastList from "../components/castList";
@@ -19,7 +19,7 @@ const ProfilePage = (props) => {
 
     const { data: actor, error, isLoading, isError } = useQuery(
         ["profile", { id: id }],
-        getProfile
+        getActor
     );
 
     if (isLoading) {

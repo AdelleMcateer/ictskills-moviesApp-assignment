@@ -1,28 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
-import PageTemplate from "../components/templateMovieCastPage";
-import CastList from "../components/castList";
-import { getMovie } from '../api/tmdb-api'
+//import React, { useState, useEffect } from "react";
+//import { withRouter } from "react-router-dom";
+import React from "react";
+//import PageTemplate from "../components/templateMovieListPage";
+import PageTemplate from "../components/templateCastListPage";
+//import CastList from "../components/castList";
+//import { getMovie } from '../api/tmdb-api'
 import { useQuery } from "react-query";
+import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import Spinner from '../components/spinner'
-import { getMovieCredits } from '../api/tmdb-api'
+import { getActors } from '../api/tmdb-api'
 
 const MovieCastPage = (props) => {
-    const { id } = props.match.params;
-
-    const [cast, setCast] = useState([]);
-    useEffect(() => {
-        getMovieCredits(id).then((cast) => {
-            setCast(cast);
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-    console.log(cast);
-
-    const { data: movie, error, isLoading, isError } = useQuery(
-        ["discover", { id: id }],
-        getMovie
-    );
+    const { data, error, isLoading, isError } = useQuery
+        ("discover", getActors)
 
     if (isLoading) {
         return <Spinner />;
@@ -30,21 +20,24 @@ const MovieCastPage = (props) => {
 
     if (isError) {
         return <h1>{error.message}</h1>;
-    };
+    }
+    const cast = data.results;
+
+    // Redundant, but necessary to avoid app crashing.
+    const castFavorites = cast.filter(c => c.favorite)
+    localStorage.setItem('favorites', JSON.stringify(castFavorites))
+
 
     return (
-        <>
-            {movie ? (
-                <>
-                    <PageTemplate movie={movie}>
-                        <CastList cast={cast} />
-                    </PageTemplate>
-                </>
-            ) : (
-                <p>Loading cast details..'</p>
-            )}
-        </>
+        <PageTemplate
+            title="Discover the Cast"
+            cast={cast}
+            action={(cast) => {
+                return <AddToFavoritesIcon cast={cast} />
+            }}
+        />
     );
 };
 
-export default withRouter(MovieCastPage);
+export default MovieCastPage
+

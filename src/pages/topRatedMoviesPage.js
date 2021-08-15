@@ -8,7 +8,7 @@ import Spinner from '../components/spinner';
 
 
 const TopRatedMoviesPage = (props) => {
-    const { data, error, isLoading, isError } = useQuery('upcoming', getTopRatedMovies)
+    const { data, error, isLoading, isError } = useQuery('toprated', getTopRatedMovies)
 
     if (isLoading) {
         return <Spinner />
