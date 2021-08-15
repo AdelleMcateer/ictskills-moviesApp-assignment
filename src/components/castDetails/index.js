@@ -37,7 +37,7 @@ const CastDetails = ({ cast }) => {  // Don't miss this!
     return (
         <>
             <Typography variant="h5" component="h3">
-                Cast Bio
+                Biography
             </Typography>
 
             <Typography variant="h8" component="p">

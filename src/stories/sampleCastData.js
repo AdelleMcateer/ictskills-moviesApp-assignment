@@ -4,6 +4,7 @@ export default
     gender: 2,
     id: 18918,
     //mdb_id: "nm0425005",
+    biography: "An American and Canadian actor, producer and semi-retired professional wrestler, signed with WWE. Johnson is half-Black and half-Samoan. His father, Rocky Johnson, is a Black Canadian, from Nova Scotia, and part of the..",
     known_for_department: "Acting",
     name: "Dwayne Johnson",
     place_of_birth: "Hayward, California, USA",

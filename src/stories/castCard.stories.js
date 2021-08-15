@@ -8,7 +8,7 @@ import { action } from "@storybook/addon-actions";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 
 export default {
-  title: "Cast Details Page/CastCard",
+  title: "Home Page/CastCard",
   component: CastCard,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,

@@ -54,7 +54,7 @@ export default function MovieCredits({ movie }) {
                                         },
                                     }}
                                 >
-                                    Full Bio
+                                    Full Biography
                                 </Link>
                             </TableCell>
                         </TableRow>
