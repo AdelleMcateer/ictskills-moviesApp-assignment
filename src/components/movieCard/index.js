@@ -15,7 +15,7 @@ import StarRateIcon from "@material-ui/icons/StarRate";
 //import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import img from '../../images/film-poster-placeholder.png';
-import { MoviesContext } from "../../contexts/moviesContext"
+import { MoviesContext } from "../../contexts/moviesContext";
 
 
 const useStyles = makeStyles({
@@ -83,6 +83,7 @@ export default function MovieCard({ movie, action }) {
                     </Grid>
                 </Grid>
             </CardContent>
+
             <CardActions disableSpacing>
                 {action(movie)}
                 <Link to={`/movies/${movie.id}`}>

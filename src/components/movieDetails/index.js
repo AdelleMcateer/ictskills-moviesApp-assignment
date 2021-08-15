@@ -9,7 +9,9 @@ import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import MovieReviews from "../movieReviews"
+import MovieReviews from "../movieReviews";
+import MovieCredits from "../movieCredits";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -77,6 +79,14 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
                     </li>
                 ))}
             </Paper>
+
+            <Typography variant="h5" component="h3">
+                Cast
+            </Typography>
+
+            <Button variant="contained" color="secondary" onClick={() => setDrawerOpen(true)}>
+                Cast Details
+            </Button>
 
 
             <Fab

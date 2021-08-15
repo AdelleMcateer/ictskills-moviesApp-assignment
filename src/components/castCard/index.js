@@ -31,7 +31,7 @@ export default function CastCard({ movieCast }) {
                 title={
                     <Typography variant="h5" component="p">
                         <PersonIcon fontSize="medium" />
-                        {movieCast.character}{" "}
+                        {movieCast.name}{" "}
                     </Typography>
                 }
             />
@@ -49,7 +49,8 @@ export default function CastCard({ movieCast }) {
                 <Grid container>
                     <Grid item xs={6}>
                         <Typography variant="h6" component="p">
-                            {movieCast.name}
+                            <PersonIcon fontSize="medium" />
+                            {movieCast.character}
                         </Typography>
                     </Grid>
                     <Grid item xs={6}>
@@ -61,19 +62,19 @@ export default function CastCard({ movieCast }) {
                 </Grid>
             </CardContent>
 
-            <CardActions >
-                <Link to={`/movies/${movieCast.id}/profile`}>
-                    <Button variant="outlined" size="medium" color="primary">
-                        Profile
-                    </Button>
-                </Link>
-
+            {<CardActions >
                 <Link to={`/movies/${movieCast.id}/filmography`}>
                     <Button variant="outlined" size="medium" color="primary">
                         Filmography
                     </Button>
                 </Link>
-            </CardActions>
+
+                {/*<Link to={`/movies/${movieCast.id}/filmography`}>
+                    <Button variant="outlined" size="medium" color="primary">
+                        Filmography
+                    </Button>
+            </Link> */}
+            </CardActions>}
         </Card>
     );
 }

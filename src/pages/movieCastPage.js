@@ -5,14 +5,14 @@ import CastList from "../components/castList";
 import { getMovie } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
-import { getMovieCast } from '../api/tmdb-api'
+import { getMovieCredits } from '../api/tmdb-api'
 
 const MovieCastPage = (props) => {
     const { id } = props.match.params;
 
     const [cast, setCast] = useState([]);
     useEffect(() => {
-        getMovieCast(id).then((cast) => {
+        getMovieCredits(id).then((cast) => {
             setCast(cast);
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,7 +41,7 @@ const MovieCastPage = (props) => {
                     </PageTemplate>
                 </>
             ) : (
-                <p>Loading movie details..'</p>
+                <p>Loading cast details..'</p>
             )}
         </>
     );

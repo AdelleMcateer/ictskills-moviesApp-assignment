@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import { getPersonImages } from "../../api/tmdb-api";
+import { getActorImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner';
 
@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
 const TemplateCastPage = ({ actor, children }) => {
     const classes = useStyles();
     const { data, error, isLoading, isError } = useQuery(
-        ["personImages", { id: actor.id }],
-        getPersonImages
+        ["actorImages", { id: actor.id }],
+        getActorImages
     );
 
     if (isLoading) {
