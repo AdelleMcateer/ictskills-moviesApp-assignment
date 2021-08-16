@@ -15,7 +15,7 @@ const queryClient = new QueryClient({
 });
 
 export default {
-    title: "Cast List Page/FilterCastCard",
+    title: "Home Page/FilterCastCard",
     component: FilterCastCard,
     decorators: [
         (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,

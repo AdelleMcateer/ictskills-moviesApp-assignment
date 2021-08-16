@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../contexts/authContext";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -33,8 +34,7 @@ const SiteHeader = ({ history }) => {
         { label: "Trending", path: "/movies/trending" },
         { label: "Top Rated", path: "/movies/toprated" },
         { label: "Cast", path: "/cast" },
-        { label: "Login", path: "/" },
-        { label: "Signup", path: "/" },
+        { label: "Login", path: "/login" }
     ];
 
     const handleMenuSelect = (pageURL) => {
