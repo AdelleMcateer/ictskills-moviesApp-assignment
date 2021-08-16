@@ -6,13 +6,15 @@ Name: Adelle McAteer
 
 This an extension of the Movies fan app from the previous labs work.
 
-New/modified features:
- 
+### New/modified features:
+
  + Trending Movies Page
  + Top Rated Movies
  + Cast List visible on the movie details page
- + Seperate Cast page displaying popluar actors
- + Cast Biography 
+ + Seperate Cast page displaying popluar stars and images
+ + Cast Biography hypelink on movie details page and cast page
+ + Login View
+ + Signup View
 
 ## Setup requirements.
 
@@ -30,7 +32,7 @@ New/modified features:
 
 ### Component catalogue.
 
-....... Insert a screenshot from the Storybook UI showing your component catalogue. [For the Movies app, hi-light stories relating to new/modified components - see the example screenshot below] .......
+Insert a screenshot from the Storybook UI showing your component catalogue. [For the Movies app, hi-light stories relating to new/modified components - see the example screenshot below] .......
 
 ![][stories]
 
@@ -45,12 +47,11 @@ New/modified features:
 
 ...... Insert a list of the routes supported by your app and state the associated view. If relevant, specify which of the routes require authentication, i.e. protected/private. [For the Movies Fan app, only new routes should be listed.] ......... 
 
-+ GET /blogs - displays all published blogs.
++ GET /cast - displays movie cast
++ GET /movies/trending - displays currently trending movies - this updates regularly
++ GET /movies/toprated - displays top rated movies 
 + POST /blogs (protected) - add a new blog.
-+ GET /blogs/:id - displays a particular blog.
-+ GET /blogs/:id/comments (protected) - detail view of a particular blog and its comments.
-+ etc.
-+ etc.
++ GET /cast/:id - displays a particular cast member.
 
 ## Independent learning (If relevant).
 
