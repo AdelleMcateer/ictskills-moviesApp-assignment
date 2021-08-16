@@ -1,19 +1,18 @@
 # Assignment - ReactJS app.
 
-Name: ... your name ...
+Name: Adelle McAteer
 
 ## Overview.
 
-...... State the app concept and objectives. If it's the Movies Fan app extension, only state the additional objectives .........
+This an extension of the Movies fan app from the previous labs work.
 
-
-...... A bullet-point list of user features. If it's the Movies Fan app extension, only list new/modified features...... 
+New/modified features:
  
- + Feature 1
- + Feature 2
- + Feature 3
- + etc
- + etc
+ + Trending Movies Page
+ + Top Rated Movies
+ + Cast List visible on the movie details page
+ + Seperate Cast page displaying popluar actors
+ + Cast Biography 
 
 ## Setup requirements.
 
