@@ -138,14 +138,14 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
                                 <TableCell >
                                     <Link
                                         to={{
-                                            pathname: `/credits/${c.id}`,
+                                            pathname: `/cast/${c.id}`,
                                             state: {
                                                 credit: c,
                                                 movie: movie,
                                             },
                                         }}
                                     >
-                                        Full biography
+                                        Biography
                                     </Link>
                                 </TableCell>
                             </TableRow>
@@ -153,7 +153,6 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
                     </TableBody>
                 </Table>
             </TableContainer>
-
 
             <Fab
                 color="secondary"
