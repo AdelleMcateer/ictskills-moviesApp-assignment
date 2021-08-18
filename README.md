@@ -53,28 +53,37 @@ $ https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_AP
  ```
  $ https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
 ```
+ ![Top Rated movies sample output](./src/images/topratedMovies.JPG?raw=true)
+
 ### Movie credits 
 ```
 $ https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}
 ```
+ ![Movie Credits sample output](./src/images/movieCredits.JPG?raw=true)
 
 ### Cast/actors
 ```
 $https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US
 ```
+ ![Movie Cast sample output](./src/images/castDetails.JPG?raw=true)
+
 ### Popular Cast/actors
 ```
 $ https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_video=false&page=1
  ```
+  ![Popular Cast sample output](./src/images/actorDetails.PNG?raw=true)
+
 ### Cast Images
 ```
 $ https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}
 ```
-
-### Cast Images
+  ![Cast Images sample output](./src/images/castImages.JPG?raw=true)
+  
+### Combined Credits
 ```     
 $ https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
 ```
+  ![Combined Credits sample output](./src/images/combinedCredits.JPG?raw=true)
 
 ## App Design.
 
