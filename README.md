@@ -43,34 +43,35 @@ $ npm run storybook
 
 The following additional TMDB endpoints have been used
 
-
-```
-$ https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1
-```
-```
-$ https://api.themoviedb.org/3/discover/movie?sort_by=popularity&api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1
-```
+### Trending Movies
 ```
 $ https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=2
 ```
+ ![Trending movies sample output](./images/trendingMovies.JPG?raw=true)
+ 
+### Top Rated Movies
  ```
  $ https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
 ```
+### Movie credits 
 ```
 $ https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}
 ```
+
+### Cast/actors
 ```
 $https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US
 ```
-
+### Popular Cast/actors
 ```
 $ https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_video=false&page=1
  ```
-
+### Cast Images
 ```
 $ https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}
 ```
 
+### Cast Images
 ```     
 $ https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
 ```
