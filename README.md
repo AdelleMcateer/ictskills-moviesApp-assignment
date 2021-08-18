@@ -24,20 +24,17 @@ To install the required modules run the below from the terminal:
 
 ```
 $ npm install
-
 ```
 To start the app run the below from the terminal:
 
 ```
 $ npm start
-
 ```
 
 To run storybook:
 
 ```
 $ npm run storybook
-
 ```
 
 
