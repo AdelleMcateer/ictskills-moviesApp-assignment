@@ -39,8 +39,6 @@ $ npm run storybook
 
 ## API Data Model.
 
-![][model]
-
 The following additional TMDB endpoints have been used
 
 ### Trending Movies
@@ -135,7 +133,7 @@ Screenshots of the app's new/modified views views:
 + GET /movies/toprated - displays top rated movies 
 + GET //movies/favorites (protected) - view of logged in user's movies tagged as favorites
 + GET /cast/:id - displays a particular cast member
-+ 
++ GET /login - displays the Login Page
 
 ## Independent learning (If relevant).
 
