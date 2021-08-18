@@ -132,19 +132,15 @@ Screenshots of the app's new/modified views views:
 
 ### Routing.
 
-...... Insert a list of the routes supported by your app and state the associated view. If relevant, specify which of the routes require authentication, i.e. protected/private. [For the Movies Fan app, only new routes should be listed.] ......... 
 
 + GET /cast - displays movie cast
 + GET /movies/trending - displays currently trending movies - this updates regularly
 + GET /movies/toprated - displays top rated movies 
 + GET //movies/favorites (protected) - view of logged in user's movies tagged as favorites
-+ POST /blogs (protected) - add a new blog
 + GET /cast/:id - displays a particular cast member
-
++ 
 
 ## Independent learning (If relevant).
-
-....... Briefly state any technologies/techniques used in your project codebase that was not covered in the lectures/labs. Provide source code filename (source code excerpts are not required in most cases) references to support your assertions and include references (articles/blogs) ......... 
 
 
 [model]: ./data.jpg
