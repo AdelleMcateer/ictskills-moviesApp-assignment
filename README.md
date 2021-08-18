@@ -91,11 +91,17 @@ $ https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.e
 
 Storybook UI screenshots showing new/modified components:
 
+### Cast Card
+
 ![Cast Card component](./src/images/CastCardDefault.JPG?raw=true)
+
+### Cast List
 
 ![Cast List component](./src/images/CastListDefault.JPG?raw=true)
 
-![Filter Cast Card component](./src/images/FilterCastListCard.JPG?raw=true)
+### Filter Cast
+
+![Filter Cast Card component](./src/images/FilterCastCard.JPG?raw=true)
 
 
 ### UI Design.
