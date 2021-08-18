@@ -89,9 +89,14 @@ $ https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.e
 
 ### Component catalogue.
 
-Insert a screenshot from the Storybook UI showing your component catalogue. [For the Movies app, hi-light stories relating to new/modified components - see the example screenshot below] .......
+Storybook UI screenshots showing new/modified components:
 
-![][stories]
+![Cast Card component](./src/images/CastCardDefault.JPG?raw=true)
+
+![Cast List component](./src/images/CastListDefault.JPG?raw=true)
+
+![Filter Cast Card component](./src/images/FilterCastListCard.JPG?raw=true)
+
 
 ### UI Design.
 
