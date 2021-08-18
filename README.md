@@ -37,14 +37,43 @@ To run storybook:
 $ npm run storybook
 ```
 
-
 ## API Data Model.
-
-..... [For non-Movies Fan app] Insert a diagram of the API's data model (see example below) AND/OR a sample(s) of the JSON documents returned by its endpoints ........
 
 ![][model]
 
-......[For the Movies Fan app] Specify the additional TMDB endpoints used and show sample responses, in JSON .........
+The following additional TMDB endpoints have been used
+
+
+```
+$ https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1
+```
+```
+$ https://api.themoviedb.org/3/discover/movie?sort_by=popularity&api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1
+```
+```
+$ https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=2
+```
+ ```
+ $ https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
+```
+```
+$ https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}
+```
+```
+$https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US
+```
+
+```
+$ https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_video=false&page=1
+ ```
+
+```
+$ https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}
+```
+
+```     
+$ https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
+```
 
 ## App Design.
 
