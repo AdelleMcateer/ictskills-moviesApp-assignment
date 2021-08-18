@@ -111,10 +111,22 @@ Screenshots of the app's new/modified views views:
 ![][view]
 >Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
 
-#### LoginPage
+#### Login Page
 
 ![Login Page](./src/images/LoginPage.JPG?raw=true)
 >Shows the login Page. Clicking the 'Login' option as well as the 'Favorites' options will display this page.
+
+#### Movie Details Page - Updated Cast View
+
+![Login Page](./src/images/movieDetailsCast.JPG?raw=true)
+>Shows the Movie Details Page with updated Cast Details. Clicking the 'Biography' option will display a new page with the actor's bio.
+
+#### Cast Biography Page - Hyperlink in Movie details Page and Cast Page
+
+![Login Page](./src/images/CastMoreInfo.JPG?raw=true)
+>Shows the Cast Details Page with the selected actor's biography, popularity, DOB & Place and birth. 
+> Clicking the 'Biography' option from Movie details page will display a new page with the actor's bio.
+> Clicking the 'More info' within the Cast Page displays the same view.
 
 ### Routing.
 
