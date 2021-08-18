@@ -108,9 +108,6 @@ Storybook UI screenshots showing new/modified components:
 
 Screenshots of the app's new/modified views views:
 
-![][view]
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
-
 #### Login Page
 
 ![Login Page](./src/images/LoginPage.JPG?raw=true)
