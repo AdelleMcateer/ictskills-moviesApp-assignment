@@ -65,13 +65,13 @@ $ https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_A
 ```
 $https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US
 ```
- ![Movie Cast sample output](./src/images/castDetails.JPG?raw=true)
+ ![Movie Cast sample output](./src/images/castDetails.jpg?raw=true)
 
 ### Popular Cast/actors
 ```
 $ https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_video=false&page=1
  ```
-  ![Popular Cast sample output](./src/images/actorDetails.PNG?raw=true)
+  ![Popular Cast sample output](./src/images/actorDetails.png?raw=true)
 
 ### Cast Images
 ```
@@ -83,7 +83,7 @@ $ https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_A
 ```     
 $ https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
 ```
-  ![Combined Credits sample output](./src/images/combinedCredits.JPG?raw=true)
+  ![Combined Credits sample output](./src/images/combinedCredits.jpg?raw=true)
 
 ## App Design.
 
