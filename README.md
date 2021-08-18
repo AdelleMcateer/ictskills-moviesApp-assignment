@@ -4,7 +4,7 @@ Name: Adelle McAteer
 
 ## Overview.
 
-This an extension of the Movies fan app from the previous labs work.
+This an extension of the Movies fan app from the previous lab work.
 
 ### New/modified features:
 
@@ -13,12 +13,33 @@ This an extension of the Movies fan app from the previous labs work.
  + Cast List visible on the movie details page
  + Seperate Cast page displaying popluar stars and images
  + Cast Biography hypelink on movie details page and cast page
- + Login View
- + Signup View
+ + Login View and basic login functionality
+ + User must log in to view movies added to favorites
 
 ## Setup requirements.
 
-...... A brief explanation (to a third party) of any non-standard setup steps necessary to run your app/client locally (after cloning the repo) ........
+Clone and unzip the epository to your local machine.
+
+To install the required modules run the below from the terminal:
+
+```
+$ npm install
+
+```
+To start the app run the below from the terminal:
+
+```
+$ npm start
+
+```
+
+To run storybook:
+
+```
+$ npm run storybook
+
+```
+
 
 ## API Data Model.
 
@@ -50,8 +71,10 @@ Insert a screenshot from the Storybook UI showing your component catalogue. [For
 + GET /cast - displays movie cast
 + GET /movies/trending - displays currently trending movies - this updates regularly
 + GET /movies/toprated - displays top rated movies 
-+ POST /blogs (protected) - add a new blog.
-+ GET /cast/:id - displays a particular cast member.
++ GET //movies/favorites (protected) - view of logged in user's movies tagged as favorites
++ POST /blogs (protected) - add a new blog
++ GET /cast/:id - displays a particular cast member
+
 
 ## Independent learning (If relevant).
 

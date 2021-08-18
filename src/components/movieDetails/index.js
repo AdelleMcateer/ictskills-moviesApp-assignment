@@ -124,8 +124,8 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
                     <TableHead>
                         <TableRow>
                             <TableCell >Actor</TableCell>
-                            <TableCell align="center">Character</TableCell>
-                            <TableCell align="right">More</TableCell>
+                            <TableCell align="left">Character</TableCell>
+                            <TableCell align="left">More</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
