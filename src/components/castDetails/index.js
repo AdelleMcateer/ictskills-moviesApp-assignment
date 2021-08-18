@@ -11,6 +11,9 @@ import StarRate from "@material-ui/icons/StarRate";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
+import { getFilmography } from "../../api/tmdb-api";
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
@@ -33,6 +36,26 @@ const useStyles = makeStyles((theme) => ({
 const CastDetails = ({ cast }) => {  // Don't miss this!
     const classes = useStyles();
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [actor, setCredits] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
+        getFilmography(cast.id).then((actor) => {
+            setCredits(actor);
+        })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    if (loading) {
+        return <p>Loading Details...</p>;
+    }
 
     return (
         <>

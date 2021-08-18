@@ -2,16 +2,17 @@ import React from "react";
 import CastCard from "../components/castCard";
 import SampleMovieCast from "./sampleCastData";
 import { MemoryRouter } from "react-router";
-//import MoviesContextProvider from "../contexts/moviesContext";
+import MoviesContextProvider from "../contexts/moviesContext";
 import CastContextProvider from "../contexts/castContext";
 import { action } from "@storybook/addon-actions";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 
 export default {
-  title: "Home Page/CastCard",
+  title: "Cast/CastCard",
   component: CastCard,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
+    (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
     (Story) => <CastContextProvider>{Story()}</CastContextProvider>,
   ],
 };
@@ -38,4 +39,4 @@ export const Exceptional = () => {
   );
 };
 
-Exceptional.storyName = "exception";
+Exceptional.storyName = "Exception";

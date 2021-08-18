@@ -91,25 +91,30 @@ $ https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.e
 
 Storybook UI screenshots showing new/modified components:
 
-### Cast Card
+#### Cast Card
 
 ![Cast Card component](./src/images/CastCardDefault.JPG?raw=true)
 
-### Cast List
+#### Cast List
 
 ![Cast List component](./src/images/CastListDefault.JPG?raw=true)
 
-### Filter Cast
+#### Filter Cast
 
 ![Filter Cast Card component](./src/images/FilterCastCard.JPG?raw=true)
 
 
 ### UI Design.
 
-...... Insert screenshots of the app's views, with appropriate captions (see example below). (For the Movies Fan App, only show the new/modified views) ........
+Screenshots of the app's new/modified views views:
 
 ![][view]
 >Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
+
+#### LoginPage
+
+![Login Page](./src/images/LoginPage.JPG?raw=true)
+>Shows the login Page. Clicking the 'Login' option as well as the 'Favorites' options will display this page.
 
 ### Routing.
 

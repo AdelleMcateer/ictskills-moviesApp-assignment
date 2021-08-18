@@ -12,6 +12,7 @@ import Grid from "@material-ui/core/Grid";
 import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router-dom";
 
+
 const useStyles = makeStyles({
     card: { maxWidth: 345 },
     media: { height: 500 },
@@ -22,14 +23,6 @@ const useStyles = makeStyles({
 
 export default function CastCard({ cast, action }) {
     const classes = useStyles();
-
-    /*const { favorites } = useContext(CastContextProvider);
-
-    if (favorites.find((id) => id === cast.id)) {
-        cast.favorite = true;
-    } else {
-        cast.favorite = false;
-    }*/
 
     return (
         <Card className={classes.card}>
