@@ -47,8 +47,8 @@ The following additional TMDB endpoints have been used
 ```
 $ https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=2
 ```
- ![Trending movies sample output](./images/trendingMovies.JPG?raw=true)
- 
+ ![Trending movies sample output](./src/images/trendingMovies.JPG?raw=true)
+
 ### Top Rated Movies
  ```
  $ https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
