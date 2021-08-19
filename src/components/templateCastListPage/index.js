@@ -18,8 +18,11 @@ function TemplateCastListPage({ cast, name, action }) {
 
     let displayedCast = cast
         .filter((c) => {
-            return c.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
+            if (typeof (c.name) != "undefined")
+                return c.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
             //return c.name.search() !== -1;
+            else
+                return false;
         });
 
     const handleChange = (type, value) => {

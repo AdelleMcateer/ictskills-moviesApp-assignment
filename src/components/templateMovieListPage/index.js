@@ -19,7 +19,10 @@ function MovieListPageTemplate({ movies, title, action }) {
 
     let displayedMovies = movies
         .filter((m) => {
-            return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
+            if (typeof (m.title) != "undefined")
+                return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
+            else
+                return false;
             //return m.title.search() !== -1;
         })
         .filter((m) => {
