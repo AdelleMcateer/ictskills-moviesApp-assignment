@@ -21,7 +21,8 @@ const useStyles = makeStyles({
     },
 });
 
-export default function CastCard({ cast, action }) {
+export default function CastCard({ actor, }) {
+    //export default function CastCard({ actor, action }) {
     const classes = useStyles();
 
     return (
@@ -30,15 +31,15 @@ export default function CastCard({ cast, action }) {
                 className={classes.header}
                 title={
                     <Typography variant="h5" component="p">
-                        {cast.name}{" "}
+                        {actor.name}{" "}
                     </Typography>
                 }
             />
             <CardMedia
                 className={classes.media}
                 image={
-                    cast.profile_path
-                        ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
+                    actor.profile_path
+                        ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
                         : img
                 }
             />
@@ -48,14 +49,14 @@ export default function CastCard({ cast, action }) {
                     <Grid item xs={6}>
                         <Typography variant="h6" component="p">
                             <StarRateIcon fontSize="small" />
-                            {" "} {cast.popularity}{" "}
+                            {" "} {actor.popularity}{" "}
                         </Typography>
                     </Grid>
                 </Grid>
             </CardContent>
             <CardActions disableSpacing>
-                {action(cast)}
-                <Link to={`/cast/${cast.id}`}>
+                {/*{action(actor)}*/}
+                <Link to={`/cast/${actor.id}`}>
                     <Button variant="outlined" size="medium" color="primary">
                         More Info ...
                     </Button>

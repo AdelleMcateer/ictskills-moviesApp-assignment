@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router";
 import CastContextProvider from "../contexts/castContext";
 
 export default {
-    title: "Cast Details Page/CastDetails",
+    title: "Actors/CastDetails",
     component: CastDetails,
     decorators: [
         (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,

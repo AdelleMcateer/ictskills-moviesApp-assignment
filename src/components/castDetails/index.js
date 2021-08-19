@@ -17,7 +17,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-
 import { getFilmography } from "../../api/tmdb-api";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,16 +38,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const CastDetails = ({ cast }) => {  // Don't miss this!
+const CastDetails = ({ actor }) => {  // Don't miss this!
     const classes = useStyles();
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const [actor, setCredits] = useState([]);
+    const [cast, setCredits] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setLoading(true);
-        getFilmography(actor.id).then((actor) => {
-            setCredits(actor);
+        getFilmography(actor.id).then((cast) => {
+            setCredits(cast);
         })
             .catch((err) => {
                 console.log(err);
@@ -66,7 +65,7 @@ const CastDetails = ({ cast }) => {  // Don't miss this!
     return (
         <>
             <Typography variant="h5" component="h3">
-                Cast Biography
+                Actor Biography
             </Typography>
             <br></br>
             <Typography variant="h8" component="p">
@@ -105,7 +104,7 @@ const CastDetails = ({ cast }) => {  // Don't miss this!
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {actor.map((a) => (
+                        {cast.map((a) => (
                             <TableRow key={a.id} className={classes.tableCell}>
                                 <TableCell component="th" scope="row">
                                     {a.title}

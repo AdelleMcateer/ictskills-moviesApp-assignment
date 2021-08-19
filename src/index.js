@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import MovieReviewPage from "./pages/movieReviewPage";
+import MovieCastPage from "./pages/movieCastPage";
 import HomePage from "./pages/homePage";
 import CastPage from "./pages/movieCastPage";
 import CastDetailsPage from "./pages/castDetailsPage";
@@ -48,6 +49,7 @@ const App = () => {
                             <Route exact path="/movies/trending" component={TrendingMoviesPage} />
                             <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
                             <Route path="/movies/:id" component={MoviePage} />
+                            <Route exact path="/actor" component={MovieCastPage} />
                             <Route exact path="/cast/:id" component={CastDetailsPage} />
                             <Route exact path="/" component={HomePage} />
                             <Route path="/login" component={LoginPage} />

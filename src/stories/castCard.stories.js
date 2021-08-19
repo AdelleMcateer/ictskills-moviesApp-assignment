@@ -20,23 +20,22 @@ export default {
 export const Basic = () => {
   return (
     <CastCard
-      cast={SampleMovieCast}
-      action={(cast) => <AddToFavoritesIcon cast={cast} />}
-      taging={(cast) => null}
+      actor={SampleMovieCast}
+      action={(actor) => <AddToFavoritesIcon actor={actor} />}
+      taging={(actor) => null}
     />
   );
 };
 Basic.storyName = "Default";
 
 export const Exceptional = () => {
-  const sampleNoPoster = { ...SampleMovieCast, profile_path: undefined };
+  const sampleNoPoster = { ...SampleMovieCast, poster_path: undefined };
   return (
     <CastCard
-      movieCast={sampleNoPoster}
-      action={(cast) => <AddToFavoritesIcon cast={cast} />}
-      taging={(cast) => null}
+      actor={sampleNoPoster}
+      action={(actor) => <AddToFavoritesIcon actor={actor} />}
+      taging={(actor) => null}
     />
   );
 };
-
 Exceptional.storyName = "Exception";

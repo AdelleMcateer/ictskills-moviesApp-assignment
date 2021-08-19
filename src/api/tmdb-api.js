@@ -97,7 +97,7 @@ export const getMovieCredits = (id) => {
         });
 };
 
-/*export const getProfile = async (args) => {
+export const getProfile = async (args) => {
     const [prefix, { id }] = args.queryKey;
     const response = await fetch(
         `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
@@ -106,7 +106,7 @@ export const getMovieCredits = (id) => {
         throw new Error(response.json().message);
     }
     return response.json();
-};*/
+};
 
 export const getActor = async (args) => {
     const [prefix, { id }] = args.queryKey;
@@ -141,9 +141,9 @@ export const getActorImages = async ({ queryKey }) => {
     return response.json();
 };
 
-export const getFilmography = async ({ queryKey }) => {
+/*export const getFilmography = async ({ queryKey }) => {
     const [prefix, { id }] = queryKey;
-    console.log("Retrieving filmography");
+    //console.log("Retrieving filmography");
     return fetch(
         `https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
     )
@@ -152,6 +152,16 @@ export const getFilmography = async ({ queryKey }) => {
             console.log("JSON : " + id + " " + json.cast);
             return json.cast;
         });
-};
+};*/
 
+export const getFilmography = (id) => {
+    return fetch(
+        `https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_video=false&page=1`
+    )
+        .then((res) => res.json())
+        .then((json) => {
+            console.log(json.cast);
+            return json.cast;
+        });
+};
 
