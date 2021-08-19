@@ -129,7 +129,7 @@ Screenshots of the app's new/modified views views:
 
 #### Cast Biography - Movie Details Hyperlink 
 
-![Cast Biography - Movie Details Hyperlink ](./src/images/CastMovieinfo.JPG?raw=true)
+![Cast Biography - Movie Details Hyperlink ](./src/images/CastMovieInfo.JPG?raw=true)
 > Clicking the 'Movie Details' option from an actor's page will display the movie details page.
 
 
