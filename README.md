@@ -59,6 +59,13 @@ $ https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_A
 ```
  ![Movie Credits sample output](./src/images/movieCredits.JPG?raw=true)
 
+
+ ### Sample Cast Data
+```
+$https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US
+```
+ ![Sample Cast Data output](./src/images/SampleCastData.JPG?raw=true)
+
 ### Cast/actors
 ```
 $https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US
