@@ -7,13 +7,13 @@ const CastContextProvider = (props) => {
     const [castFavorites, setFavorites] = useState([])
 
 
-    const addToFavorites = (movieCast) => {
-        setFavorites([...castFavorites, movieCast.id])
+    const addToFavorites = (cast) => {
+        setFavorites([...castFavorites, cast.id])
     };
     // We will use this function in a later section
-    const removeFromFavorites = (movieCast) => {
+    const removeFromFavorites = (cast) => {
         setFavorites(castFavorites.filter(
-            (aId) => aId !== movieCast.id
+            (aId) => aId !== cast.id
         ))
     };
 
