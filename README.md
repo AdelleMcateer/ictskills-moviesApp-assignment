@@ -96,6 +96,10 @@ $ https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${process.e
 
 Storybook UI screenshots showing new/modified components:
 
+#### App Header
+
+![App Header component](./src/images/appHeaderStory.JPG?raw=true)
+
 #### Cast Card
 
 ![Cast Card component](./src/images/CastCardDefault.JPG?raw=true)
