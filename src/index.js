@@ -49,7 +49,7 @@ const App = () => {
                             <Route exact path="/movies/trending" component={TrendingMoviesPage} />
                             <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
                             <Route path="/movies/:id" component={MoviePage} />
-                            <Route exact path="/actor" component={MovieCastPage} />
+                            {/*<Route exact path="/cast" component={MovieCastPage} />*/}
                             <Route exact path="/cast/:id" component={CastDetailsPage} />
                             <Route exact path="/" component={HomePage} />
                             <Route path="/login" component={LoginPage} />

@@ -19,7 +19,7 @@ export default {
 };
 
 export const Basic = () => {
-  const actors = [
+  const cast = [
     { ...SampleMovieCast, id: 1 },
     { ...SampleMovieCast, id: 2 },
     { ...SampleMovieCast, id: 3 },
@@ -29,8 +29,8 @@ export const Basic = () => {
   return (
     <Grid container spacing={5}>
       <CastList
-        actors={actors}
-        action={(actor) => <AddToFavoritesIcon actor={actor} />}
+        cast={cast}
+        action={(cast) => <AddToFavoritesIcon cast={cast} />}
       />
     </Grid>
   );

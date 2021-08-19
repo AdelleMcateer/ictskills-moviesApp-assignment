@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Chip from "@material-ui/core/Chip";
 import CakeIcon from "@material-ui/icons/Cake";
-import Drawer from "@material-ui/core/Drawer";
 import { Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import PlaceIcon from "@material-ui/icons/Place";
-import MovieReviews from "../movieReviews";
-import NavigationIcon from "@material-ui/icons/Navigation";
 import Fab from "@material-ui/core/Fab";
 import StarRate from "@material-ui/icons/StarRate";
 import Table from "@material-ui/core/Table";
@@ -38,15 +35,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const CastDetails = ({ actor }) => {  // Don't miss this!
+const CastDetails = ({ cast }) => {  // Don't miss this!
     const classes = useStyles();
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const [cast, setCredits] = useState([]);
+    const [actors, setCredits] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setLoading(true);
-        getFilmography(actor.id).then((cast) => {
+        getFilmography(cast.id).then((cast) => {
             setCredits(cast);
         })
             .catch((err) => {
@@ -65,29 +62,29 @@ const CastDetails = ({ actor }) => {  // Don't miss this!
     return (
         <>
             <Typography variant="h5" component="h3">
-                Actor Biography
+                Cast Biography
             </Typography>
             <br></br>
             <Typography variant="h8" component="p">
-                {actor.biography}
+                {cast.biography}
             </Typography>
 
             <Paper component="ul" className={classes.root}>
                 <Chip
                     icon={<StarRate />}
-                    label={`Popularity: ${actor.popularity}`}
+                    label={`Popularity: ${cast.popularity}`}
                 />
             </Paper>
 
             <Paper component="ul" className={classes.root}>
-                <Chip icon={<CakeIcon />} label={`Birthday: ${actor.birthday}`} />
-                <Chip icon={<PlaceIcon />} label={`Place of Birth: ${actor.place_of_birth}`} />
+                <Chip icon={<CakeIcon />} label={`Birthday: ${cast.birthday}`} />
+                <Chip icon={<PlaceIcon />} label={`Place of Birth: ${cast.place_of_birth}`} />
             </Paper>
 
             <Typography variant="h8" component="p">
                 <br></br>
                 <Chip label="Known For" className={classes.chip} color="primary" />
-                <b>{actor.known_for_department}</b>
+                <b>{cast.known_for_department}</b>
             </Typography>
             <br></br>
 
@@ -104,7 +101,7 @@ const CastDetails = ({ actor }) => {  // Don't miss this!
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {cast.map((a) => (
+                        {actors.map((a) => (
                             <TableRow key={a.id} className={classes.tableCell}>
                                 <TableCell component="th" scope="row">
                                     {a.title}
