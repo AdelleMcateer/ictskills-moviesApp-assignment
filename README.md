@@ -106,12 +106,14 @@ Storybook UI screenshots showing new/modified components:
 
 Screenshots of the app's new/modified views views:
 
-#### Login Page
+#### Trending Movies Page
 
-![Login Page](./src/images/LoginPage.JPG?raw=true)
->Shows the login Page. Clicking the 'Login' option as well as the 'Favorites' options will display this page.
->Clicking the 'Favorites' redirects to the login Page also. 
->Once logged in the 'Favorites' options will be displayed.
+![Trending Movies Pagee](./src/images/trendingMoviesView.JPG?raw=true)
+>Shows current Trending Movies which updates daily.
+
+![Top Rated Movies Pagee](./src/images/topratedMoviesView.JPG?raw=true)
+>Shows current Top Rated Movies.
+
 
 #### Movie Details Page - Updated Cast View
 
@@ -129,8 +131,15 @@ Screenshots of the app's new/modified views views:
 
 #### Cast Biography - Movie Details Hyperlink 
 
-![Cast Biography - Movie Details Hyperlink ](./src/images/CastMovieInfo.JPG?raw=true)
+![Cast Biography Page - Movie Details Hyperlink ](./src/images/CastMovieInfo.JPG?raw=true)
 > Clicking the 'Movie Details' option from an actor's page will display the movie details page.
+
+#### Login Page
+
+![Login Page](./src/images/LoginPage.JPG?raw=true)
+>Shows the login Page. Clicking the 'Login' option as well as the 'Favorites' options will display this page.
+>Clicking the 'Favorites' redirects to the login Page also. 
+>Once logged in the 'Favorites' page with any added favorites options will be displayed.
 
 
 ### Routing.
