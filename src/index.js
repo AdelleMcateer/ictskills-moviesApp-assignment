@@ -16,7 +16,7 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TrendingMoviesPage from "./pages/trendingMoviesPage";
 import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
-
+import AuthHeader from "./components/authHeader";
 import AuthContextProvider from "./contexts/authContext";
 import LoginPage from "./pages/loginPage";
 import PrivateRoute from "./components/privateRoute";

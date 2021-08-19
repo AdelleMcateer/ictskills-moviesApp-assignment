@@ -118,6 +118,7 @@ Screenshots of the app's new/modified views views:
 ![Movie Cast Page](./src/images/movieDetailsCast.JPG?raw=true)
 >Shows the Movie Details Page with updated Cast Details. Clicking the 'Biography' option will display a new page with the actor's bio.
 
+
 #### Cast Biography Page - Hyperlink in Movie details Page and Cast Page
 
 ![Cast Biography Page](./src/images/CastMoreInfo.JPG?raw=true)
@@ -125,19 +126,22 @@ Screenshots of the app's new/modified views views:
 > Clicking the 'Biography' option from Movie details page will display a new page with the actor's bio.
 > Clicking the 'More info' within the Cast Page displays the same view.
 
-### Routing.
 
+#### Cast Biography - Movie Details Hyperlink 
+
+![Cast Biography - Movie Details Hyperlink ](./src/images/CastMovieinfo.JPG?raw=true)
+> Clicking the 'Movie Details' option from an actor's page will display the movie details page.
+
+
+### Routing.
 
 + GET /cast - displays movie cast
 + GET /movies/trending - displays currently trending movies - this updates regularly
 + GET /movies/toprated - displays top rated movies 
 + GET //movies/favorites (protected) - view of logged in user's movies tagged as favorites
-+ GET /cast/:id - displays a particular cast member
++ GET /cast/:id - displays further details on a particular cast member
 + GET /login - displays the Login Page
 
 ## Independent learning (If relevant).
 
-
-[model]: ./data.jpg
-[view]: ./view.png
-[stories]: ./storybook.png
++ Not applicable
